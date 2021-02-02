@@ -1,5 +1,11 @@
 import React, { useCallback } from 'react';
-import { FiDollarSign, FiDownload, FiEdit, FiMenu } from 'react-icons/fi';
+import {
+  FiDollarSign,
+  FiDownload,
+  FiEdit,
+  FiMenu,
+  FiRepeat,
+} from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 import { useModal } from '../../hooks/modal';
@@ -7,7 +13,11 @@ import ModalGenerator from '../ModalGenerator';
 
 import { Container } from './styles';
 
-const SideBar: React.FC = () => {
+interface SideBarProps {
+  handleAtualizeSituation(): void;
+}
+
+const SideBar: React.FC<SideBarProps> = ({ handleAtualizeSituation }) => {
   const { user } = useAuth();
 
   const { handleShowModalGenerator } = useModal();
@@ -41,6 +51,10 @@ const SideBar: React.FC = () => {
         <button type="button" onClick={handleClickGeneratedPayment}>
           <FiEdit />
           Gerar boleto
+        </button>
+        <button type="button" onClick={handleAtualizeSituation}>
+          <FiRepeat />
+          Atualizar Situação
         </button>
       </Container>
 

@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiSearch, FiEdit, FiClipboard } from 'react-icons/fi';
 
-import Header from '../../../components/Header';
+import HeaderAdmin from '../components/HeaderAdmin';
 import Footer from '../../../components/Footer';
 import SideBar from '../components/SideBar';
 
@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <HeaderAdmin />
 
       <Container>
         <div>

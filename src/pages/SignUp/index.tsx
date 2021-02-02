@@ -11,28 +11,14 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import { Button, Container, Content, Header } from './styles';
 
 import Input from '../../components/Input';
+import InputMask from '../../components/InputMask';
 
 import logo from '../../assets/logo.svg';
 import api from '../../services/api';
 import Select from '../../components/Select';
 import Loading from '../../components/Loading';
-
-interface RegisterFormData {
-  name: string;
-  email: string;
-  password: string;
-  cpf: string;
-  rg: string;
-  age: number;
-  works: boolean;
-  course: string;
-  course_period: number;
-  travel: string;
-  street: string;
-  number: number;
-  district: string;
-  cep: string;
-}
+import { RegisterFormData } from '../../utils/types';
+import formatDataToSignIn from '../../utils/formatDataToSignIn';
 
 export const optionsTravel = [
   { value: 'franca', label: 'Cássia-Franca' },
@@ -86,7 +72,9 @@ const SignUp: React.FC = () => {
 
         setIsLoading(true);
 
-        const response = await api.post('/users', data);
+        const formattedData = formatDataToSignIn(data);
+
+        const response = await api.post('/users', formattedData);
 
         if (selectedFile) {
           const formData = new FormData();
@@ -104,6 +92,7 @@ const SignUp: React.FC = () => {
 
           formRef.current?.setErrors(errors);
         }
+        setIsLoading(false);
 
         alert(
           'Não foi possivel fazer o cadastro, verifique os campos preenchidos ou tente novamente!',
@@ -171,11 +160,11 @@ const SignUp: React.FC = () => {
               </section>
 
               <section className="documents-section">
-                <Input
+                <InputMask
                   name="cpf"
-                  type="text"
                   placeholder="Digite o cpf"
                   labelText="CPF"
+                  mask="999.999.999-99"
                   isRegisterInput
                 />
                 <Input
@@ -185,11 +174,11 @@ const SignUp: React.FC = () => {
                   labelText="RG"
                   isRegisterInput
                 />
-                <Input
+                <InputMask
                   name="phone"
-                  type="number"
-                  placeholder="Digite o telefone"
+                  placeholder="Digite seu numero"
                   labelText="Telefone"
+                  mask="(99) 99999-9999"
                   isRegisterInput
                 />
                 <div className="groupx2">
@@ -254,11 +243,12 @@ const SignUp: React.FC = () => {
                   labelText="Bairro"
                   isRegisterInput
                 />
-                <Input
+                <InputMask
                   name="cep"
                   type="text"
                   placeholder="Digite o cep"
                   labelText="CEP"
+                  mask="99999-999"
                   isRegisterInput
                 />
               </section>

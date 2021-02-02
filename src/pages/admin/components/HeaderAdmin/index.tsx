@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { FiMenu, FiPower } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/auth';
+import { useAuth } from '../../../../hooks/auth';
 
 import { Container } from './styles';
 
-import logo from '../../assets/logo.svg';
-import useWindowSize from '../../hooks/windowSize';
+import logo from '../../../../assets/logo.svg';
+import useWindowSize from '../../../../hooks/windowSize';
 import MobileMenu from './MobileMenu';
 
 const Header: React.FC = () => {

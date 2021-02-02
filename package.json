@@ -19,6 +19,7 @@
     "react-dom": "^17.0.1",
     "react-dropzone": "^11.2.4",
     "react-icons": "^4.1.0",
+    "react-input-mask": "^2.0.4",
     "react-loading": "^2.0.3",
     "react-modal": "^3.12.1",
     "react-router-dom": "^5.2.0",
@@ -48,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-input-mask": "^3.0.0",
     "@types/react-modal": "^3.10.6",
     "@types/react-router-dom": "^5.1.6",
     "@types/react-select": "^3.0.27",

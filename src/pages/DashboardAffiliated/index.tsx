@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { FiCheck, FiMoreHorizontal } from 'react-icons/fi';
 import { format } from 'date-fns';
@@ -41,6 +41,15 @@ const DashboardAffiliated: React.FC = () => {
     loadData();
   }, [user, generatorModalVisible]);
 
+  const handleAtualizeSituation = useCallback(async () => {
+    setIsLoading(true);
+    if (user) {
+      const response = await api.get(`/payments/verify-payments/${user?.id}`);
+      setPayments(response.data);
+    }
+    setIsLoading(false);
+  }, [user]);
+
   const formattedMonths = useMemo(() => {
     return payments.map(({ updated_at }) => {
       const dateInstance = new Date(updated_at);
@@ -56,7 +65,7 @@ const DashboardAffiliated: React.FC = () => {
       <Header />
 
       <Container>
-        <SideBar />
+        <SideBar handleAtualizeSituation={handleAtualizeSituation} />
 
         <Content>
           {isLoading ? (
