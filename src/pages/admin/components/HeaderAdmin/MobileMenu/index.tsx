@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FiDollarSign, FiEdit, FiUsers, FiX } from 'react-icons/fi';
+import { FiDollarSign, FiEdit, FiX } from 'react-icons/fi';
 
 import { Link } from 'react-router-dom';
 import { Container } from './styles';
