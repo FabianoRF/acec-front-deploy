@@ -13,6 +13,11 @@ export const Container = styled.main`
     display: flex;
     justify-content: space-between;
   }
+
+  @media (max-width: 980px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const Content = styled.section`
@@ -140,6 +145,40 @@ export const Table = styled.section`
       }
     }
   }
+
+  @media (max-width: 980px) {
+    width: 100%;
+    margin: 0;
+
+    header {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      span {
+        text-align: center;
+        padding: 13px 15px;
+      }
+    }
+
+    main {
+      section {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        span {
+          padding: 13px 15px;
+          text-align: center;
+        }
+        button,
+        a {
+          margin: 13px auto;
+        }
+      }
+    }
+
+    .travel-field,
+    .travel-title {
+      display: none;
+    }
+  }
 `;
 
 export const UserInformation = styled.article`
@@ -169,6 +208,12 @@ export const UserInformation = styled.article`
       &:hover {
         color: ${shade(0.5, '#12a454')};
       }
+    }
+  }
+
+  @media (max-width: 980px) {
+    img {
+      display: none;
     }
   }
 `;

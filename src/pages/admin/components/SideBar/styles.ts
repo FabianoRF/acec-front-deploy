@@ -15,6 +15,10 @@ export const Container = styled.aside`
   font-size: 16px;
   color: ${colors.textDetails};
 
+  @media (max-width: 960px) {
+    display: none;
+  }
+
   span {
     width: 100%;
     border-bottom: 5px solid ${colors.textDetails};

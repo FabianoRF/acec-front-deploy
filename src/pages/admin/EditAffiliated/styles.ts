@@ -143,5 +143,9 @@ export const Content = styled.section`
         }
       }
     }
+
+    @media (max-width: 980px) {
+      padding: 30px;
+    }
   }
 `;

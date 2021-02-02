@@ -6,19 +6,23 @@ export const Container = styled.main`
   display: flex;
   justify-content: space-between;
   margin-right: 50px;
+
+  @media (max-width: 980px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const Content = styled.section`
   flex: 1;
   max-width: 1100px;
   margin: 0 auto;
+  min-height: 80vh;
 `;
 
 export const Table = styled.section`
   display: flex;
   flex-direction: column;
-
-  border: 1px solid ${colors.textDetails};
 
   header {
     display: grid;
@@ -93,6 +97,40 @@ export const Table = styled.section`
       .btn-unavailable {
         background: #ff0f00;
       }
+    }
+  }
+
+  @media (max-width: 980px) {
+    width: 100%;
+    margin: 0;
+
+    header {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      span {
+        text-align: center;
+        padding: 13px 15px;
+      }
+    }
+
+    main {
+      section {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        span {
+          padding: 13px 15px;
+          text-align: center;
+        }
+        button,
+        a {
+          margin: 13px auto;
+        }
+      }
+    }
+
+    .value-field,
+    .value-title {
+      display: none;
     }
   }
 `;

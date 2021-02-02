@@ -74,16 +74,16 @@ const DashboardAffiliated: React.FC = () => {
             <Table>
               <header>
                 <span>Seus Boletos</span>
-                <span>Valor</span>
+                <span className="value-title">Valor</span>
                 <span>Situação</span>
-                <span>Visualizar Boleto</span>
+                <span>Ver Boleto</span>
               </header>
 
               <main>
                 {payments.map((payment, index) => (
                   <section key={payment.payment_url}>
                     <span>{formattedMonths[index]}</span>
-                    <span>
+                    <span className="value-field">
                       R$
                       {payment.amount}
                     </span>

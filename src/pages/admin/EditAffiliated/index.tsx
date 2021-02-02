@@ -6,42 +6,26 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
 import { useHistory, useParams } from 'react-router-dom';
-import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import SideBar from '../components/SideBar';
 import Input from '../../../components/Input';
 import Select from '../../../components/Select';
-
-import { Container, Content } from './styles';
-import { optionsTravel } from '../../../utils/types';
-
-import getValidationErrors from '../../../utils/getValidationErrors';
-import api from '../../../services/api';
+import HeaderAdmin from '../components/HeaderAdmin';
+import InputMask from '../../../components/InputMask';
 import DropzoneContract from '../../../components/DropzoneContract';
 import Loading from '../../../components/Loading';
 
+import { Container, Content } from './styles';
+import { optionsTravel, UpdateFormData } from '../../../utils/types';
+import getValidationErrors from '../../../utils/getValidationErrors';
+
+import api from '../../../services/api';
+
 import avatarDefault from '../../../assets/avatar-default.png';
+import formatDataToUpdate from '../../../utils/formatDataToUpdate';
 
 interface RouteParams {
   id: string;
-}
-
-interface RegisterFormData {
-  name: string;
-  email: string;
-  cpf: string;
-  rg: string;
-  phone: string;
-  age: number;
-  course: string;
-  period_initial: string;
-  period_final: string;
-  travel: string;
-  street: string;
-  district: string;
-  cep: string;
-  contract_url: string;
-  avatar_url: string;
 }
 
 const CreateAffiliated: React.FC = () => {
@@ -51,7 +35,7 @@ const CreateAffiliated: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
   const { id } = useParams<RouteParams>();
-  const [userData, setUserData] = useState({} as RegisterFormData);
+  const [userData, setUserData] = useState({} as UpdateFormData);
 
   useEffect(() => {
     api.get(`/users/${id}`).then(response => {
@@ -61,7 +45,7 @@ const CreateAffiliated: React.FC = () => {
   }, [id]);
 
   const handleSubmit = useCallback(
-    async (data: RegisterFormData) => {
+    async (data: UpdateFormData) => {
       try {
         formRef.current?.setErrors({});
 
@@ -97,7 +81,8 @@ const CreateAffiliated: React.FC = () => {
           await api.patch(`/users/contract/${id}`, formData);
         }
 
-        await api.put(`/users/${id}`, data);
+        const formattedData = formatDataToUpdate(data);
+        await api.put(`/users/${id}`, formattedData);
 
         alert('Afiliado editado com sucesso');
 
@@ -134,7 +119,7 @@ const CreateAffiliated: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <HeaderAdmin />
 
       <Container>
         <div>
@@ -184,21 +169,21 @@ const CreateAffiliated: React.FC = () => {
                     labelText="Email"
                     isRegisterInput
                   />
-                  <Input
+                  <InputMask
                     name="phone"
-                    type="phone"
-                    placeholder="Digite o telefone"
+                    placeholder="Digite seu numero"
                     labelText="Telefone"
+                    mask="(99) 99999-9999"
                     isRegisterInput
                   />
                 </div>
 
                 <div className="group">
-                  <Input
+                  <InputMask
                     name="cpf"
-                    type="text"
                     placeholder="Digite o cpf"
                     labelText="CPF"
+                    mask="999.999.999-99"
                     isRegisterInput
                   />
                   <Input
@@ -256,11 +241,12 @@ const CreateAffiliated: React.FC = () => {
                   labelText="Bairro"
                   isRegisterInput
                 />
-                <Input
+                <InputMask
                   name="cep"
                   type="text"
                   placeholder="Digite o cep"
                   labelText="CEP"
+                  mask="99999-999"
                   isRegisterInput
                 />
 
@@ -268,7 +254,12 @@ const CreateAffiliated: React.FC = () => {
                   <h2>Contrato:</h2>
 
                   {userData.contract_url ? (
-                    <a href={userData.contract_url} className="btn-contract">
+                    <a
+                      href={userData.contract_url}
+                      className="btn-contract"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Ver Contrato
                     </a>
                   ) : (

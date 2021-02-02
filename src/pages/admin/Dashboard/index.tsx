@@ -85,7 +85,7 @@ const Dashboard: React.FC = () => {
               <Table>
                 <header>
                   <span>Nome</span>
-                  <span>Linha</span>
+                  <span className="travel-title">Linha</span>
                   <span>Pagamentos</span>
                   <span>Contrato</span>
                 </header>
@@ -104,7 +104,7 @@ const Dashboard: React.FC = () => {
                         </Link>
                       </UserInformation>
 
-                      <span>{user.travel}</span>
+                      <span className="travel-field">{user.travel}</span>
                       <button
                         type="button"
                         className="btn-show-payments"

@@ -7,13 +7,31 @@ export interface RegisterFormData {
   age: number;
   works: boolean;
   course: string;
-  course_period: number;
+  period_initial: number;
+  period_final: number;
   travel: string;
   street: string;
-  number: number;
   district: string;
   phone: string;
   cep: string;
+}
+
+export interface UpdateFormData {
+  name: string;
+  email: string;
+  cpf: string;
+  rg: string;
+  phone: string;
+  age: number;
+  course: string;
+  period_initial: string;
+  period_final: string;
+  travel: string;
+  street: string;
+  district: string;
+  cep: string;
+  contract_url: string;
+  avatar_url: string;
 }
 
 export const optionsTravel = [
