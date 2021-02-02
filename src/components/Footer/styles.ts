@@ -10,41 +10,32 @@ export const Container = styled.footer`
   justify-content: center;
 
   > div {
-    max-width: 1280px;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 0;
+    padding: 4px;
 
-    .texting {
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-
-      p {
-        color: #fff;
-        font-size: 16px;
-        text-align: left;
-        font-weight: 400;
-
-        & + p {
-          padding-top: 10px;
-        }
-      }
-    }
-  }
-
-  section {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 2rem;
-
-    svg {
+    a {
       color: #fff;
-      height: 40px;
-      width: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s;
+      font-size: 14px;
+
+      svg {
+        height: 24px;
+        width: 24px;
+        margin-right: 8px;
+      }
+      span {
+        margin-left: 3px;
+        font-weight: 500;
+      }
+
+      &:hover {
+        color: #aea0a0;
+      }
     }
   }
 `;
