@@ -62,7 +62,7 @@ const DashboardAffiliated: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header handleAtualizeSituation={handleAtualizeSituation} />
 
       <Container>
         <SideBar handleAtualizeSituation={handleAtualizeSituation} />

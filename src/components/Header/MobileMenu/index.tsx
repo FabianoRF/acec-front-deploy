@@ -10,9 +10,13 @@ import ModalGenerator from '../../ModalGenerator';
 
 interface MobileMenuProps {
   onClose(): void;
+  handleAtualizeSituation(): void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ onClose }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({
+  onClose,
+  handleAtualizeSituation,
+}) => {
   const { user } = useAuth();
 
   const { handleShowModalGenerator } = useModal();
@@ -21,6 +25,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose }) => {
     handleShowModalGenerator();
     onClose();
   }, [handleShowModalGenerator, onClose]);
+
+  const handleClickAtualizeSituation = useCallback(() => {
+    handleAtualizeSituation();
+    onClose();
+  }, [handleAtualizeSituation, onClose]);
 
   return (
     <>
@@ -50,7 +59,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose }) => {
           <button
             type="button"
             className="btn-att"
-            onClick={() => console.log('ladf')}
+            onClick={handleClickAtualizeSituation}
           >
             <FiRepeat />
             Atualizar Situação

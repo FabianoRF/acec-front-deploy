@@ -9,7 +9,11 @@ import logo from '../../assets/logo.svg';
 import useWindowSize from '../../hooks/windowSize';
 import MobileMenu from './MobileMenu';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  handleAtualizeSituation(): void;
+}
+
+const Header: React.FC<HeaderProps> = ({ handleAtualizeSituation }) => {
   const { signOut, user, adm } = useAuth();
 
   const windowSize = useWindowSize();
@@ -41,7 +45,12 @@ const Header: React.FC = () => {
           </Link>
         </article>
       </Container>
-      {showMenu && <MobileMenu onClose={() => setShowMenu(false)} />}
+      {showMenu && (
+        <MobileMenu
+          handleAtualizeSituation={handleAtualizeSituation}
+          onClose={() => setShowMenu(false)}
+        />
+      )}
     </>
   );
 };
