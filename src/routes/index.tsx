@@ -8,11 +8,13 @@ import DashboardAffiliated from '../pages/DashboardAffiliated';
 import Dashboard from '../pages/admin/Dashboard';
 import SignUp from '../pages/SignUp';
 import EditAffiliated from '../pages/admin/EditAffiliated';
+import Landing from '../pages/Landing';
 
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route component={SignIn} path="/" exact />
+      <Route component={Landing} path="/" exact />
+      <Route component={SignIn} path="/sign-in" />
       <Route component={SignUp} path="/register" />
 
       <Route component={DashboardAffiliated} path="/dashboard" />

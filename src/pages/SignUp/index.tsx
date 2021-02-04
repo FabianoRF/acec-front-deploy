@@ -120,7 +120,7 @@ const SignUp: React.FC = () => {
 
             <Header>
               <h3>Dados Pessoais</h3>
-              <Link to="/">Voltar para o login</Link>
+              <Link to="/sign-in">Voltar para o login</Link>
             </Header>
 
             <main>

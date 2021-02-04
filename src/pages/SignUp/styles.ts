@@ -106,6 +106,16 @@ export const Content = styled.div`
 
   @media (max-width: 800px) {
     form {
+      .profile-section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .input-group {
+          width: 100%;
+        }
+      }
+
       .groupx2 {
         display: block;
 

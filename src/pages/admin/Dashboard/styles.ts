@@ -78,6 +78,7 @@ export const Content = styled.section`
 export const Table = styled.section`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 
   header {
     display: grid;
@@ -156,6 +157,7 @@ export const Table = styled.section`
       span {
         text-align: center;
         padding: 13px 15px;
+        font-size: 18px;
       }
     }
 

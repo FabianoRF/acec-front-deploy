@@ -37,7 +37,9 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 700px) {
-    margin-right: 10px;
+  @media (max-width: 800px) {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
   }
 `;
