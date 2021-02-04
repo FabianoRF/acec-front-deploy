@@ -34,6 +34,14 @@ export interface UpdateFormData {
   avatar_url: string;
 }
 
+export interface RideFormData {
+  name: string;
+  email: string;
+  cpf: string;
+  phone: string;
+  travel: string;
+}
+
 export const optionsTravel = [
   { value: 'franca', label: 'Cássia -> Franca' },
   { value: 'passos', label: 'Cássia -> Passos' },

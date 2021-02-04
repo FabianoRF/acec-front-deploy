@@ -20,7 +20,7 @@ const Landing: React.FC = () => {
             <img src={logo} alt="acec" />
 
             <nav>
-              <Link to="/carona" className="btn-carona">
+              <Link to="/ride" className="btn-carona">
                 Carona
               </Link>
               <Link to="/sign-in" className="btn-sign-in">

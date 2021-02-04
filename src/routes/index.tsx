@@ -9,6 +9,7 @@ import Dashboard from '../pages/admin/Dashboard';
 import SignUp from '../pages/SignUp';
 import EditAffiliated from '../pages/admin/EditAffiliated';
 import Landing from '../pages/Landing';
+import CreateRide from '../pages/CreateRide';
 
 const Routes: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Routes: React.FC = () => {
       <Route component={Landing} path="/" exact />
       <Route component={SignIn} path="/sign-in" />
       <Route component={SignUp} path="/register" />
+      <Route component={CreateRide} path="/ride" />
 
       <Route component={DashboardAffiliated} path="/dashboard" />
 

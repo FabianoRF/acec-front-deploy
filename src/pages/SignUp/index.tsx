@@ -84,7 +84,7 @@ const SignUp: React.FC = () => {
           await api.patch(`/users/avatar/${response.data.id}`, formData);
         }
 
-        history.push('/');
+        history.push('/sign-in');
         setIsLoading(false);
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
