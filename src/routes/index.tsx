@@ -8,14 +8,14 @@ import DashboardAffiliated from '../pages/DashboardAffiliated';
 import Dashboard from '../pages/admin/Dashboard';
 import SignUp from '../pages/SignUp';
 import EditAffiliated from '../pages/admin/EditAffiliated';
-import Landing from '../pages/Landing';
+// import Landing from '../pages/Landing';
 import CreateRide from '../pages/CreateRide';
 
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route component={Landing} path="/" exact />
-      <Route component={SignIn} path="/sign-in" />
+      {/* <Route component={Landing} path="/" exact /> */}
+      <Route component={SignIn} path="/" />
       <Route component={SignUp} path="/register" />
       <Route component={CreateRide} path="/ride" />
 
