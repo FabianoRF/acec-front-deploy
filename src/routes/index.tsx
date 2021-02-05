@@ -15,7 +15,7 @@ const Routes: React.FC = () => {
   return (
     <Switch>
       {/* <Route component={Landing} path="/" exact /> */}
-      <Route component={SignIn} path="/" />
+      <Route component={SignIn} path="/" exact />
       <Route component={SignUp} path="/register" />
       <Route component={CreateRide} path="/ride" />
 
