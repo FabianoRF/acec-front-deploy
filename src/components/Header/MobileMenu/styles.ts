@@ -106,7 +106,6 @@ export const Container = styled.div`
 
       padding: 14px 40px;
 
-      width: 100%;
       transition: background 0.3s;
 
       &:hover {

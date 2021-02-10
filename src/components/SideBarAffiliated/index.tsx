@@ -5,6 +5,7 @@ import {
   FiEdit,
   FiMenu,
   FiRepeat,
+  FiUser,
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
@@ -36,6 +37,10 @@ const SideBar: React.FC<SideBarProps> = ({ handleAtualizeSituation }) => {
         <Link to="/dashboard">
           <FiDollarSign />
           Ver boletos
+        </Link>
+        <Link to="/profile">
+          <FiUser />
+          Editar informações
         </Link>
 
         {user?.contract_url && (

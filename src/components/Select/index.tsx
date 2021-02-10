@@ -14,7 +14,7 @@ interface Props extends SelectProps<OptionTypeBase> {
 
 const Select: React.FC<Props> = ({ name, labelTitle, ...rest }) => {
   const selectRef = useRef(null);
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -36,11 +36,11 @@ const Select: React.FC<Props> = ({ name, labelTitle, ...rest }) => {
   }, [fieldName, registerField, rest.isMulti]);
 
   const fieldDefaultValue = useMemo(() => {
-    return { label: defaultValue, defaultValue };
+    return { label: defaultValue, value: defaultValue };
   }, [defaultValue]);
 
   return (
-    <Container>
+    <Container isErrored={!!error}>
       <p>{labelTitle}</p>
       <ReactSelect
         defaultValue={defaultValue && fieldDefaultValue}

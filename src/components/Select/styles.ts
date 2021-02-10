@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '../../utils/colors';
 
-export const Container = styled.div`
+interface SelectContainerProps {
+  isErrored: boolean;
+}
+
+export const Container = styled.div<SelectContainerProps>`
   display: flex;
   align-items: center;
   justify-content: left;
@@ -20,6 +24,14 @@ export const Container = styled.div`
 
   .css-2b097c-container {
     width: 160px;
+  }
+
+  .css-yk16xz-control {
+    ${props =>
+      props.isErrored &&
+      css`
+        border-color: #c53030;
+      `}
   }
 
   @media (max-width: 700px) {

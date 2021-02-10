@@ -1,6 +1,14 @@
 import React, { useCallback } from 'react';
-import { FiDownload, FiEdit, FiRepeat, FiX } from 'react-icons/fi';
+import {
+  FiDollarSign,
+  FiDownload,
+  FiEdit,
+  FiRepeat,
+  FiUser,
+  FiX,
+} from 'react-icons/fi';
 
+import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
 import logoMinaSvg from '../../../assets/logo.svg';
@@ -42,6 +50,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </header>
 
         <div className="box-links">
+          <Link to="/dashboard">
+            <FiDollarSign />
+            Ver boletos
+          </Link>
+          <Link to="/profile">
+            <FiUser />
+            Editar informações
+          </Link>
           {user?.contract_url && (
             <a
               href={user?.contract_url}

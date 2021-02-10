@@ -20,14 +20,11 @@ import Loading from '../../components/Loading';
 import { RegisterFormData } from '../../utils/types';
 import formatDataToSignIn from '../../utils/formatDataToSignIn';
 
-export const optionsTravel = [
-  { value: 'franca', label: 'Cássia-Franca' },
-  { value: 'passos', label: 'Cássia-Passos' },
-];
+import { optionsCourseSchedule, optionsWorks } from '../../utils/types';
 
-export const optionsWorks = [
-  { value: true, label: 'sim' },
-  { value: false, label: 'não' },
+const optionsTravel = [
+  { value: 'franca', label: 'Cássia -> Franca' },
+  { value: 'passos', label: 'Cássia -> Passos' },
 ];
 
 const SignUp: React.FC = () => {
@@ -51,12 +48,14 @@ const SignUp: React.FC = () => {
             [Yup.ref('password'), undefined],
             'Confirmação incorreta',
           ),
-          period_final: Yup.number().required('Obrigatório'),
-          period_initial: Yup.number().required('Obrigatório'),
+          university: Yup.string().required('Obrigatório'),
+          course_schedule: Yup.string().required('Obrigatório'),
+          period_final: Yup.string().required('Obrigatório'),
+          period_initial: Yup.string().required('Obrigatório'),
           cpf: Yup.string().required('CPF obrigatório'),
           rg: Yup.string().required('RG obrigatório'),
           phone: Yup.string().required('Telefone obrigatório'),
-          age: Yup.number().required('Idade obrigatória'),
+          age: Yup.string().required('Idade obrigatória'),
 
           works: Yup.string().required('Trabalho obrigatório'),
           course: Yup.string().required('Curso obrigatório'),
@@ -70,19 +69,21 @@ const SignUp: React.FC = () => {
           abortEarly: false,
         });
 
+        if (!selectedFile) {
+          throw new Error('Nenhum arquivo selecionado');
+        }
+
         setIsLoading(true);
 
         const formattedData = formatDataToSignIn(data);
 
         const response = await api.post('/users', formattedData);
 
-        if (selectedFile) {
-          const formData = new FormData();
+        const formData = new FormData();
 
-          formData.append('avatar', selectedFile, selectedFile.name);
+        formData.append('avatar', selectedFile, selectedFile.name);
 
-          await api.patch(`/users/avatar/${response.data.id}`, formData);
-        }
+        await api.patch(`/users/avatar/${response.data.id}`, formData);
 
         history.push('/');
         setIsLoading(false);
@@ -197,6 +198,18 @@ const SignUp: React.FC = () => {
                 </div>
 
                 <Input
+                  name="university"
+                  type="text"
+                  placeholder="Digite o nome da Faculdade"
+                  labelText="Faculdade"
+                  isRegisterInput
+                />
+                <Select
+                  name="course_schedule"
+                  options={optionsCourseSchedule}
+                  labelTitle="Periodo"
+                />
+                <Input
                   name="course"
                   type="text"
                   placeholder="Digite o curso"
@@ -208,7 +221,7 @@ const SignUp: React.FC = () => {
                     name="period_initial"
                     type="number"
                     placeholder="Ano de início"
-                    labelText="Periodo de"
+                    labelText="Cursando de"
                     isRegisterInput
                   />
                   <Input

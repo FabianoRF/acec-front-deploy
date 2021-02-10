@@ -10,6 +10,7 @@ import SignUp from '../pages/SignUp';
 import EditAffiliated from '../pages/admin/EditAffiliated';
 // import Landing from '../pages/Landing';
 import CreateRide from '../pages/CreateRide';
+import EditProfile from '../pages/EditProfile';
 
 const Routes: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const Routes: React.FC = () => {
       <Route component={CreateRide} path="/ride" />
 
       <Route component={DashboardAffiliated} path="/dashboard" />
+      <Route component={EditProfile} path="/profile" />
 
       <Route component={SignUp} path="/adm/register" isPrivate />
       <Route component={Dashboard} path="/adm/dashboard" isPrivate />

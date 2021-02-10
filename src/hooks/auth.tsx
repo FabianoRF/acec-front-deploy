@@ -7,6 +7,7 @@ interface User {
   email: string;
   name: string;
   contract_url: string;
+  avatar_url: string;
 }
 
 interface Adm {

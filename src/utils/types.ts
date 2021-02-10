@@ -7,6 +7,8 @@ export interface RegisterFormData {
   age: number;
   works: boolean;
   course: string;
+  university: string;
+  course_schedule: string;
   period_initial: number;
   period_final: number;
   travel: string;
@@ -24,6 +26,8 @@ export interface UpdateFormData {
   phone: string;
   age: number;
   course: string;
+  university: string;
+  course_schedule: string;
   period_initial: string;
   period_final: string;
   travel: string;
@@ -31,6 +35,21 @@ export interface UpdateFormData {
   district: string;
   cep: string;
   contract_url: string;
+  avatar_url: string;
+}
+
+export interface ProfileFormData {
+  email: string;
+  phone: string;
+  course: string;
+  university: string;
+  course_schedule: string;
+  period_initial: string;
+  period_final: string;
+  travel: string;
+  street: string;
+  district: string;
+  cep: string;
   avatar_url: string;
 }
 
@@ -54,4 +73,9 @@ export const optionsTravel = [
 export const optionsWorks = [
   { value: true, label: 'sim' },
   { value: false, label: 'não' },
+];
+
+export const optionsCourseSchedule = [
+  { value: 'noturno', label: 'noturno' },
+  { value: 'matutino', label: 'matutino' },
 ];
