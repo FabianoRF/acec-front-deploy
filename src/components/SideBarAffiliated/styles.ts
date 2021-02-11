@@ -5,7 +5,7 @@ import colors from '../../utils/colors';
 export const Container = styled.aside`
   background: #fff;
   min-height: 600px;
-  width: 300px;
+  min-width: 300px;
 
   border-right: 5px solid ${colors.textDetails};
   display: flex;

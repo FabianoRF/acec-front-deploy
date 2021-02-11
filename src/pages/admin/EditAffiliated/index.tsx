@@ -16,7 +16,11 @@ import DropzoneContract from '../../../components/DropzoneContract';
 import Loading from '../../../components/Loading';
 
 import { Container, Content } from './styles';
-import { optionsTravel, UpdateFormData } from '../../../utils/types';
+import {
+  optionsCourseSchedule,
+  optionsTravel,
+  UpdateFormData,
+} from '../../../utils/types';
 import getValidationErrors from '../../../utils/getValidationErrors';
 
 import api from '../../../services/api';
@@ -196,6 +200,20 @@ const CreateAffiliated: React.FC = () => {
                 </div>
 
                 <Input
+                  name="university"
+                  type="text"
+                  placeholder="Digite o nome de sua faculdade"
+                  labelText="Faculdade"
+                  isRegisterInput
+                />
+
+                <Select
+                  name="course_schedule"
+                  labelTitle="Periodo"
+                  options={optionsCourseSchedule}
+                />
+
+                <Input
                   name="course"
                   type="text"
                   placeholder="Digite o curso"
@@ -207,7 +225,7 @@ const CreateAffiliated: React.FC = () => {
                     name="period_initial"
                     type="number"
                     placeholder="Ano de início"
-                    labelText="Periodo de"
+                    labelText="Cursando de"
                     isRegisterInput
                   />
                   <Input

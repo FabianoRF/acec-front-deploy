@@ -10,16 +10,22 @@ export const Container = styled.main`
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 980px) {
+      justify-content: center;
+    }
   }
 `;
 
 export const Content = styled.section`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   form {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
 
@@ -104,6 +110,11 @@ export const Content = styled.section`
 
     @media (max-width: 980px) {
       padding: 30px;
+
+      .group3x1,
+      .group {
+        display: block;
+      }
     }
   }
 `;

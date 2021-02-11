@@ -123,7 +123,7 @@ const EditProfile: React.FC = () => {
                 ref={formRef}
                 initialData={userData}
               >
-                <h1>Digite os dados do associado</h1>
+                <h1>Edite seus dados</h1>
                 <article>
                   {userData.avatar_url ? (
                     <img

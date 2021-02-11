@@ -22,13 +22,15 @@ export const Content = styled.section`
 
   form {
     display: flex;
+    width: 100%;
+
     flex-direction: column;
 
     max-width: 700px;
 
     h1 {
       text-align: center;
-      font-size: 22px;
+      font-size: 20px;
       color: ${colors.textDetails};
       font-weight: 500;
       padding: 10px 0;
@@ -146,6 +148,11 @@ export const Content = styled.section`
 
     @media (max-width: 980px) {
       padding: 30px;
+
+      .group3x1,
+      .group {
+        display: block;
+      }
     }
   }
 `;
